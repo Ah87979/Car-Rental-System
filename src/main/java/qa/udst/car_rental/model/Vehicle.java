@@ -1,13 +1,13 @@
 package qa.udst.car_rental.model;
 
-// import com.fasterxml.jackson.annotation.JsonSubTypes;
-// import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-// @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-// @JsonSubTypes({
-//     @JsonSubTypes.Type(value = Car.class, name = "car"),
-//     @JsonSubTypes.Type(value = Truck.class, name = "truck")
-// })
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Car.class, name = "car"),
+    @JsonSubTypes.Type(value = Truck.class, name = "truck")
+})
 public abstract class Vehicle {
 
     private int id;
@@ -22,9 +22,9 @@ public abstract class Vehicle {
         this.year = year;
     }
 
-    // public Vehicle() {
+    public Vehicle() {
 
-    // }
+    }
 
     public int getId() {
         return id;

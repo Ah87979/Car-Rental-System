@@ -9,9 +9,9 @@ public class Car extends Vehicle {
         this.seats = seats;
     }
 
-    // public Car() {
-        
-    // }
+    public Car() {
+        super();
+    }
 
     public int getSeats() {
         return seats;

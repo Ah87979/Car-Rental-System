@@ -9,9 +9,9 @@ public class Truck extends Vehicle {
         this.capacity = capacity;
     }
 
-    // public Truck() {
-        
-    // }
+    public Truck() {
+        super();
+    }
     
     public int getCapacity() {
         return capacity;

@@ -1,45 +1,32 @@
 package qa.udst.car_rental.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import qa.udst.car_rental.model.Vehicle;
+import qa.udst.car_rental.repository.VehicleRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VehicleService {
 
-    List<Vehicle> vehicles = new ArrayList<Vehicle>();
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
-    public ArrayList<Vehicle> getAllVehicles() {
-        return new ArrayList<Vehicle>(this.vehicles);
-    }
-    
-    public Vehicle getVehicleById(int id) {
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getId() == id) {
-                return vehicle;
-            }
-        }
-        return null;
+    public List<Vehicle> getAllVehicles() {
+        return vehicleRepository.findAll();
     }
 
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
+    public Optional<Vehicle> getVehicleById(int id) {
+        return vehicleRepository.findById(id);
     }
 
-    public void updateVehicle(int id, Vehicle updatedVehicle) {
-        for (int i = 0; i < vehicles.size(); i++) {
-            if (vehicles.get(i).getId() == id) {
-                vehicles.set(i, updatedVehicle);
-                return;
-            }
-        }
+    public Vehicle saveVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
     }
 
     public void deleteVehicle(int id) {
-        vehicles.removeIf(vehicle -> vehicle.getId() == id);
+        vehicleRepository.deleteById(id);
     }
-
 }
