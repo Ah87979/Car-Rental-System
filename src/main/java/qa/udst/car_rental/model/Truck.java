@@ -1,10 +1,13 @@
 package qa.udst.car_rental.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Truck extends Vehicle {
 
-    private int capacity;
+    private double capacity;
 
-    public Truck(int id, String manufacturer, String model, int year, int capacity) {
+    public Truck(int id, String manufacturer, String model, int year, double capacity) {
         super(id, manufacturer, model, year);
         this.capacity = capacity;
     }
@@ -13,11 +16,11 @@ public class Truck extends Vehicle {
         super();
     }
     
-    public int getCapacity() {
+    public double getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(double capacity) {
         this.capacity = capacity;
     }
 
