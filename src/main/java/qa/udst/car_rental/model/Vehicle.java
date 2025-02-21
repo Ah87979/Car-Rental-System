@@ -1,5 +1,6 @@
 package qa.udst.car_rental.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,19 +19,21 @@ public abstract class Vehicle {
     private int id;
     private String manufacturer;
     private String model;
-    private int year;
+    
+    @Column(name = "manufacture_year")
+    private int manufactureYear;
 
-    public Vehicle(int id, String manufacturer, String model, int year) {
-        this.id = id;
+    // Constructor without ID (JPA will handle it)
+    public Vehicle(String manufacturer, String model, int manufactureYear) {
         this.manufacturer = manufacturer;
         this.model = model;
-        this.year = year;
+        this.manufactureYear = manufactureYear;
     }
+    
+    // Default constructor for JPA
+    public Vehicle() {}
 
-    public Vehicle() {
-
-    }
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -55,12 +58,21 @@ public abstract class Vehicle {
         this.model = model;
     }
 
-    public int getYear() {
-        return year;
-    }
-    
-    public void setYear(int year) {
-        this.year = year;
+    public int getManufactureYear() {
+        return manufactureYear;
     }
 
+    public void setManufactureYear(int manufactureYear) {
+        this.manufactureYear = manufactureYear;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", manufactureYear=" + manufactureYear +
+                '}';
+    }
 }

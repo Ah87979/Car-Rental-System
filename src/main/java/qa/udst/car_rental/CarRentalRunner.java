@@ -24,14 +24,14 @@ public class CarRentalRunner implements CommandLineRunner{
         System.out.println("Seeding database with test data...");
 
         // Add sample cars
-        Car car1 = new Car(1, "Toyota", "Camry", 2022, 5);
-        Car car2 = new Car(2, "Honda", "Civic", 2021, 5);
+        Car car1 = new Car("Toyota", "Camry", 2022, 5);
+        Car car2 = new Car("Honda", "Civic", 2021, 5);
         carService.saveCar(car1);
         carService.saveCar(car2);
 
         // Add sample trucks
-        Truck truck1 = new Truck(3, "Ford", "F-150", 2023, 1.5);
-        Truck truck2 = new Truck(4, "Chevrolet", "Silverado", 2020, 2.0);
+        Truck truck1 = new Truck("Ford", "F-150", 2023, 1.5);
+        Truck truck2 = new Truck("Chevrolet", "Silverado", 2020, 2.0);
         truckService.saveTruck(truck1);
         truckService.saveTruck(truck2);
 

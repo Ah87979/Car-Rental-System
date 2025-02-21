@@ -7,8 +7,8 @@ public class Car extends Vehicle {
 
     private int seats;
 
-    public Car(int id, String manufacturer, String model, int year, int seats) {
-        super(id, manufacturer, model, year);
+    public Car(String manufacturer, String model, int year, int seats) {
+        super(manufacturer, model, year);
         this.seats = seats;
     }
 
